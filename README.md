@@ -1,4 +1,4 @@
-Task 1 - API_KEY
+Task 1 - Solution from IT Svit
 ===
 
 ```
@@ -6,6 +6,12 @@ Task 1 - API_KEY
 #  │  ├─ ││││ ││││  ┌ ││ │││  ├─ 
 #  ┘─┘┴─┘┘ ┘┘─┘┘└┘  └─┘┘─┘┘└─┘┴─┘
 ```
+
+- [Task 1 - Solution from IT Svit](#task-1---solution-from-it-svit)
+  - [Description](#description)
+  - [Requirements](#requirements)
+  - [Manual launch](#manual-launch)
+  - [Automated launchstartation, just launch `start.sh`](#automated-launchstartation-just-launch-startsh)
 
 ## Description
 
@@ -82,3 +88,15 @@ This is a simple infrastructure code for running Nginx with couple scripts. This
   ```shell
   curl -D- 'http://192.168.59.100:31037'
   ```
+
+## Automated launchstartation, just launch `start.sh`
+
+```shell
+sh ./start.sh
+```
+
+To stop the cluster, there is a `stop.sh` script present.
+
+```shell
+sh ./stop.sh
+```
