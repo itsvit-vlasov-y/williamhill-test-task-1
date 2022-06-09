@@ -10,8 +10,12 @@ metadata:
   labels:
     {{- include "lemon.labels" . | nindent 4 }}
 spec:
-  maxUnavailable: {{ int .Values.pdb.maxUnavailable }}
-  minAvailable: {{ int .Values.pdb.minAvailable }}
+  {{- with .Values.pdb.maxUnavailable }}
+  maxUnavailable: {{ int . }}
+  {{- end }}
+  {{- with .Values.pdb.minAvailable }}
+  minAvailable: {{ int . }}
+  {{- end }}
   selector:
     matchLabels:
       {{- include "lemon.selectorLabels" . | nindent 6 }}

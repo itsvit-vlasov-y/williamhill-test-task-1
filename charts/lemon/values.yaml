@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: nginx
+  repository: juice
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: stable-latest
+  tag: 1.22.0
 
 imagePullSecrets: []
 nameOverride: ""
@@ -79,5 +79,16 @@ affinity: {}
 
 pdb:
   enabled: false
-  maxUnavailable: 1
-  minAvailable: 2
+  maxUnavailable: null
+  minAvailable: null
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: http
+readinessProbe:
+  httpGet:
+    path: /
+    port: http
+
+apiKey: ""
