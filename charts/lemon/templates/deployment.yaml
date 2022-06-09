@@ -37,9 +37,9 @@ spec:
           - name: http
             containerPort: 80
             protocol: TCP
-          env:
-          - name: API_KEY
-            value: {{ quote .Values.apiKey }}
+          envFrom:
+          - secretRef:
+              name: {{ include "lemon.fullname" . }}
           {{- with .Values.livenessProbe }}
           livenessProbe:
             {{- toYaml . | nindent 12 }}
