@@ -1,0 +1,18 @@
+#  ┬─┐┬─┐┬─┐
+#  │─┘│ ││─│
+#  ┘  ┘─┘┘─┘
+
+{{- if .Values.pdb.enabled }}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "lemon.fullname" . }}
+  labels:
+    {{- include "lemon.labels" . | nindent 4 }}
+spec:
+  maxUnavailable: {{ int .Values.pdb.maxUnavailable }}
+  minAvailable: {{ int .Values.pdb.minAvailable }}
+  selector:
+    matchLabels:
+      {{- include "lemon.selectorLabels" . | nindent 6 }}
+{{- end }}
